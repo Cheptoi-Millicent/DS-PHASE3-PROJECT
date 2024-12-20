@@ -56,7 +56,7 @@ The data did not have any missing values or duplicates, so no cleaning was carri
 
 ### Univariate Analysis 
 * Distribution of 'Churn' Feature
-  
+
 * Distribution of 'Area Code' Feature
   
 * Distribution of Numerical Features
@@ -121,4 +121,80 @@ This is a technique used to convert categorical variables into a set of binary f
 
 # Modelling
 
+The model will be evaluated on the recall score. Specifically, if it achieves an recall score of 80% or higher, it will be considered a success.
+
+In order to achieve the targets stipulated in the project proposal, we will be using the following algorithms:
+- Logistic Regression
+- Decision Tree
+- Random Forest
+
+The `ROC_AUC `metric to evaluate the performance of our models
+
+To deal with class imbalance, we will be using `SMOTE` to generate synthetic examples of the minority class in our dataset
+
+# Train-Test Split
+
+Splitting data into train and test sets using a test_size of 0.25
+
+# Scaling the data
+
+Scaling is a technique used to transform numerical features into a comparable range. It helps in reducing the impact of outliers and standardizing the variables. In this process, the minimum value of the variable is transformed to 0, and the maximum value is transformed to 1, while the remaining values are scaled proportionally in between.
+
+# Applying SMOTE to Resolve Unbalanced 'churn' Feature
+
+Synthetic Minority Oversampling Technique ("SMOTE") is an oversampling technique where synthetic samples are generated for the minority class. This algorithm helps to overcome the overfitting problem posed by random oversampling.The technique aims to balance class distribution by randomly increasing minority class examples by replicating them.
+
+# Logistic Regression
+
+ A statistical model used for binary classification tasks. It is a type of regression analysis where the dependent variable is binary. The goal of logistic regression is to estimate the probability of an instance belonging to a specific class based on the values of the independent variables.
+
+ # Decision Tree Classifier
+
+It is a supervised machine learning algorithm that can be used to classify data. Decision trees work by splitting the data into smaller and smaller subsets until each subset contains only data of a single class. The decision tree then predicts the class of a new data point by following the path down the tree that corresponds to the values of its features.
+
+# Random Forest Classifier
+
+It is an ensemble learning method for classification, regression and other tasks that operates by constructing a multitude of decision trees at training time and outputting a class prediction or regression value by averaging the predictions of the individual trees.
+
+# Model Evaluation
+In this phase, we'll evaluate models based on recall score and ROC_AUC. After, we will the best two models to tune them for better perfomance.
+
+# Models Comparison - Recall Score
+
+The recall score is a measure of how many of the positive instances the model correctly identifies. A higher recall score indicates that the model is better at identifying positive instances. 
+
+# Models Comparison - ROC Curve 
+
+The ROC curve is a graphical plot that shows the trade-off between the true positive rate (TPR) and the false positive rate (FPR) for a binary classifier. The TPR is the proportion of positive instances that are correctly classified, while the FPR is the proportion of negative instances that are incorrectly classified. The AUC is the area under the ROC curve, and it is a measure of the overall performance of the classifier.
+
+A higher AUC score indicates that the classifier is better at distinguishing between positive and negative instances.
+
+# Model Tuning
+
+Based on the evaluation of the models using recall scores and ROC AUC, it is observed that theRandomForest classifier and the DecisionTree classifier have shown promising performance. To further improve their performance, model tuning can be performed using GridSearch.
+
+# 1Tuning RandomForest and Tuning Decision Tree
+
+Based on the ROC curve and the recall metric, the tuned Decision Tree model performs well in distinguishing between positive and negative classes (churned and non-churned customers) and in correctly identifying churned customers.The model has a recall score of 0.75, which means model is able to capture 75% of the actual churned customers.
+
+# Conclusion.
+
+The recall score of our DecisionTree was 75%. While this is still a good predictive model, we would like to undertake further feature engineering to boost this recall score if we had more time. We achieved our objectives to be able to predict customer churn and had an acceptable recall score. 
+
+# Recommendations 
+
+* Target High-Churn Areas with Incentives:   Offer discounts or promotional deals to customers in area codes 415 and 510, which have shown higher churn rates. 
+  These incentives can help retain customers by encouraging them to stay with the company.
+
+* Enhance Customer Service Quality:   Improve training programs for customer service representatives to ensure prompt, effective issue resolution. 
+  Reducing the frequency of customer service calls and enhancing support quality can increase customer satisfaction and lower churn rates.
+
+* Reevaluate Pricing Structures:   Review the pricing for day, evening, night, and international calls. 
+  Adjust plans or introduce discounted packages to better align with customer needs and address cost concerns that may contribute to churn.
+
+* Focus on High-Churn States:   Implement targeted retention strategies in states with elevated churn rates, such as Texas, New Jersey, Maryland, Miami, and New York. 
+  These strategies could include personalized marketing campaigns, tailored offers, or enhanced customer support specific to regional needs.
+
+* Promote Voicemail Plan Adoption:   Improve the value proposition of voicemail services by highlighting their convenience and benefits. 
+  Consider offering additional features, bundled packages, or discounts to encourage more customers to subscribe.
 
